@@ -13,6 +13,20 @@ const getAllTomador = async (req, res, next) => {
     }
 }
 
+const getTomadorId = async (req, res, next) => {
+    try {
+        const {id} = req.params;
+        const result = await TomadorServices.getById(id);
+        res.json(result);
+    } catch (error) {
+        next({
+            status: 400,
+            errorContent: error,
+            message: "Algo salio mal"
+        })
+    }
+}
+
 const tomadorRegister = async (req, res, next) => {
     try {
         const newtomador = req.body;
@@ -71,4 +85,5 @@ module.exports = {
     getAlltomadorAndAsegurados,
     getAlltomadorAndCita,
     getAlltomadorAndCotizacion,
+    getTomadorId,
 }
