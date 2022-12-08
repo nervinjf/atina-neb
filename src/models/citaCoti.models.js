@@ -57,6 +57,15 @@ const CitaCoti = db.define('citacoti', {
     statusSuscripcion: {
         type: DataTypes.STRING,
     },
+    modoCita: {
+        type: DataTypes.STRING,
+        field: 'modo_cita',
+
+    },
+    citaAcomp: {
+        type: DataTypes.STRING,
+        field: 'cita_acomp',
+    },
 });
 
 module.exports = CitaCoti;
