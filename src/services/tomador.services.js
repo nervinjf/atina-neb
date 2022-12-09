@@ -29,20 +29,21 @@ class TomadorServices {
                         model: Contacto,
                         as: "contacto",
                         attributes: ["origen", "fuente", "proposito", "estatus", "motivo1", 
-                        "motivo2", "motivo3", "observacion", "createdAt"],
+                        "motivo2", "motivo3", "observacion", "createdAt", "updatedAt"],
                     },
                     {
                         model: Asegurado,
                         as: "asegurados",
                         attributes: ["firstname", "lastname", "ci", "email", "parentesco", "phone1", 
                         "phone2", "phone3", "address1", "address2", "fNacimiento", "patologia", 
-                        "medicamentos", "createdAt",]
+                        "medicamentos", "createdAt", "updatedAt"]
                     },
                     {
                         model: CitaCoti,
                         as: "cita",
                         attributes: ["codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", 
-                        "tiempo", "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "createdAt"]
+                        "tiempo", "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "createdAt",
+                        "updatedAt"]
                     },
                 ]
             })
