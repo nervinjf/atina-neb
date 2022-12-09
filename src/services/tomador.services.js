@@ -4,14 +4,30 @@ class TomadorServices {
     static async getAll() {
         try {
             const result = await Tomador.findAll({
-                attributes: ["id", "firstname", "lastname", "ci", "email", "phone1", "phone2",
-                    "phone3", "address1", "address2", "fNacimiento", "patologia", "medicamentos", "createdAt", "updatedAt"
-                ],
-                include: {
-                    model: Users,
-                    as: "user",
-                    attributes: ["firstname", "lastname"],
-                }
+                attributes: ["id", "firstname", "lastname", "ci", "email", "phone1", "phone2", "phone3",
+                    "address1", "address2", "fNacimiento", "patologia", "medicamentos", "createdAt", "updatedAt"],
+                include: [
+                    {
+                        model: Contacto,
+                        as: "contacto",
+                        attributes: ["origen", "fuente", "proposito", "estatus", "motivo1", 
+                        "motivo2", "motivo3", "observacion", "createdAt", "updatedAt"],
+                    },
+                    {
+                        model: Asegurado,
+                        as: "asegurados",
+                        attributes: ["firstname", "lastname", "ci", "email", "parentesco", "phone1", 
+                        "phone2", "phone3", "address1", "address2", "fNacimiento", "patologia", 
+                        "medicamentos", "createdAt", "updatedAt"]
+                    },
+                    {
+                        model: CitaCoti,
+                        as: "cita",
+                        attributes: ["codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", 
+                        "tiempo", "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "createdAt",
+                        "updatedAt"]
+                    },
+                ]
             });
             return result;
         } catch (error) {
