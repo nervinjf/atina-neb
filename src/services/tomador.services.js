@@ -23,7 +23,7 @@ class TomadorServices {
         try {
             const result = await Tomador.findByPk(id, {
                 attributes: ["id", "firstname", "lastname", "ci", "email", "phone1", "phone2", "phone3",
-                    "address1", "address2", "fNacimiento", "patologia", "medicamentos", "createdAt"],
+                    "address1", "address2", "fNacimiento", "patologia", "medicamentos", "createdAt", "updatedAt"],
                 include: [
                     {
                         model: Contacto,
