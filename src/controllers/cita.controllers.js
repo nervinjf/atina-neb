@@ -42,7 +42,7 @@ const registerCita = async (req, res, next) => {
             Fecha y hora de Cita: ${result.fecha},
             Póliza: ${result.phone1}.
             Cobertura: ${result.plan},`,
-            html: welcomeTemplate(),
+            // html: welcomeTemplate(),
         });
     } catch (error) {
         next({
