@@ -31,7 +31,7 @@ const registerCita = async (req, res, next) => {
 
         transporter.sendMail({
             from: "<noreply@neb.com.ve>",
-            to: "nflores@neb.com.ve",
+            to: "vsolano@neb.com.ve" ,
             subject: `Registro Cotización ${result.firstname} ${result.lastname}`,
             text: `Buenas tardes equipo, nueva solicitud de cita. 
 
