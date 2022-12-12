@@ -39,15 +39,19 @@ class CitaServices {
     static async register(newC){
         try {
             const result = await CitaCoti.create(newC);
+            const { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
+                fDevolucion, adjunto, poliza, statusSuscripcion} = result;
+            const datos = { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
+                fDevolucion, adjunto, poliza, statusSuscripcion}
             const id = result.tomadorId;
 
             const result2 = await CitaCoti.findOne({
                 where: {id},
                 raw: true});
 
-            const result3 = {result2, result};
+            const result3 = {...result2, ...datos};
             
-            console.log(result);
+            console.log(result3);
 
             return result3;
 
