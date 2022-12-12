@@ -44,12 +44,13 @@ class CitaServices {
             const datos = { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
                 fDevolucion, adjunto, poliza, statusSuscripcion};
 
-            const result2 = await CitaCoti.findOne({
-                where: {id: result.tomadorId}});
+            const result2 = await Tomador.findOne({
+                where: {id: result.tomadorId},
+                raw: true});
 
-            const result3 = {result2};
+            const result3 = {...result2, ...datos};
             
-            console.log(result3);
+            console.log(result3, );
 
             return result3;
 
