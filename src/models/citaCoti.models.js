@@ -70,6 +70,7 @@ const CitaCoti = db.define('citacoti', {
         type: DataTypes.BOOLEAN,
         field: 'envia_Cotiza',
         allowNull: false,
+        defaultValue: false,
     },
 
 });
