@@ -45,9 +45,10 @@ class CitaServices {
                 where: {id},
                 raw: true});
 
-            const result3 = {result2, result}
+            const result3 = {result2, result};
             
-            console.log(result3)
+            console.log(result);
+
             return result3;
 
 
