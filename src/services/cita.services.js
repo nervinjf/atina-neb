@@ -43,14 +43,14 @@ class CitaServices {
                 fDevolucion, adjunto, poliza, statusSuscripcion} = result;
             const datos = { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
                 fDevolucion, adjunto, poliza, statusSuscripcion};
-            const id = result.tomadorId;
 
-            const result2 = await CitaCoti.findByPk(id, {
+            const result2 = await CitaCoti.findOne({
+                where: {id: result.tomadorId},
                 raw: true});
 
             const result3 = {result2};
             
-            console.log(result2);
+            console.log(result3);
 
             return result3;
 
