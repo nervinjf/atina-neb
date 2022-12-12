@@ -40,7 +40,7 @@ class CitaServices {
         try {
             const result = await CitaCoti.create(newC);
             const result2 = await CitaCoti.findOne({
-                where: {id},
+                where: {id: result.toamdorId},
                 attributes: ["codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", "tiempo", 
             "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "createdAt"],
                 include:[
