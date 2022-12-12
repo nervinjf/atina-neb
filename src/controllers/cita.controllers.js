@@ -1,5 +1,6 @@
 const { NotBeforeError } = require('jsonwebtoken');
 const { CitaServices } = require('../services');
+const welcomeTemplate = require('../templates/test');
 const transporter = require("../utils/mailer");
 
 const getAllCita = async (req, res, next) => {
@@ -29,20 +30,19 @@ const registerCita = async (req, res, next) => {
         transporter.sendMail({
             from: "<noreply@neb.com.ve>",
             to: "nflores@neb.com.ve",
-            subject: `Registro Cotización ${result2.firstname} ${result2.lastname}`,
+            subject: `Registro Cotización ${result.firstname} ${result.lastname}`,
             text: `Buenas tardes equipo, nueva solicitud de cita. 
 
             A continuación los datos del prospecto:
             
-            Nombre: ${result2.firstname} ${result2.lastname},
-            C.I.: ${result2.ci},
-            Telf: ${result2.phone1} / ${result2.phone2} / ${result2.phone3},
+            Nombre: ${result.firstname} ${result.lastname},
+            C.I.: ${result.ci},
+            Telf: ${result.phone1} / ${result.phone2} / ${result.phone3},
             
             Fecha y hora de Cita: ${result.fecha},
-            Póliza: ${result2.phone1}.
-            Cobertura: ${result2.plan},
-            `
-            // html: welcomeTemplate(result.username),
+            Póliza: ${result.phone1}.
+            Cobertura: ${result.plan},`,
+            html: welcomeTemplate(),
         });
     } catch (error) {
         next({
