@@ -66,6 +66,12 @@ const CitaCoti = db.define('citacoti', {
         type: DataTypes.STRING,
         field: 'cita_acomp',
     },
+    enviaCotiza: {
+        type: DataTypes.BOOLEAN,
+        field: 'envia_Cotiza',
+        allowNull: false,
+    },
+
 });
 
 module.exports = CitaCoti;
