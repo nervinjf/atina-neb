@@ -49,8 +49,6 @@ class CitaServices {
                 raw: true});
 
             const result3 = {...result2, ...datos};
-            
-            console.log(result3, );
 
             return result3;
 
