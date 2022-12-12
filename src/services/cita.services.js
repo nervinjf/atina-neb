@@ -49,7 +49,7 @@ class CitaServices {
                 where: {id},
                 raw: true});
 
-            const result3 = {...result2, ...datos};
+            const result3 = {result2};
             
             console.log(result3);
 
