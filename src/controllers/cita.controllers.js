@@ -21,14 +21,14 @@ const registerCita = async (req, res, next) => {
         const result = await CitaServices.register(newCita);
         res.status(201).json(result);
 
-        const resultTomador = result.tomadorId;
-        console.log(resultTomador);
+        // const resultTomador = result.tomadorId;
+        // console.log(resultTomador);
 
-        const result2 = await CitaServices.findOne(resultTomador)
+        // const result2 = await CitaServices.findOne(resultTomador)
 
         transporter.sendMail({
             from: "<noreply@neb.com.ve>",
-            to: "vsolano@neb.com.ve, nflores@neb.com.ve",
+            to: "nflores@neb.com.ve",
             subject: `Registro Cotización ${result2.firstname} ${result2.lastname}`,
             text: `Buenas tardes equipo, nueva solicitud de cita. 
 
