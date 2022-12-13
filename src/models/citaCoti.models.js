@@ -34,7 +34,7 @@ const CitaCoti = db.define('citacoti', {
         type: DataTypes.INTEGER,
     },
     fPago: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
     },
     efectivo: {
         type: DataTypes.STRING,
