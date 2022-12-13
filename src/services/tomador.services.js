@@ -57,7 +57,7 @@ class TomadorServices {
                     {
                         model: CitaCoti,
                         as: "cita",
-                        attributes: ["codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", 
+                        attributes: ["id", "codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", 
                         "tiempo", "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "createdAt",
                         "updatedAt"]
                     },
