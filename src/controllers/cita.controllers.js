@@ -31,7 +31,7 @@ const registerCita = async (req, res, next) => {
 
         transporter.sendMail({
             from: "<noreply@neb.com.ve>",
-            to: "vsolano@neb.com.ve" ,
+            to: "vsolano@neb.com.ve",
             subject: `Registro Cotización ${result.firstname} ${result.lastname}`,
             text: `Buenas tardes equipo, nueva solicitud de cita. 
 
@@ -55,8 +55,26 @@ const registerCita = async (req, res, next) => {
     }
 }
 
+const updateCita = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const  data  = req.body;
+
+        const result = await CitaServices.updateCi(id, data);
+        res.status(201).json(result);
+
+    } catch (error) {
+        next({
+            status: 400,
+            errorContent: error,
+            message: "Faltan datos"
+        })
+    }
+}
+
+
 module.exports = {
     getAllCita,
     registerCita,
-
+    updateCita
 }

@@ -2,7 +2,7 @@ const { userRegister, getAllUsers } = require("./users.controllers");
 const { getAllTomador, tomadorRegister, getAlltomadorAndAsegurados, getAlltomadorAndCita, 
     getAlltomadorAndCotizacion, getTomadorId } = require("./tomador.controllers");
 const { getAllAsegurado, registerAsegurado } = require('./asegurado.controllers')
-const { getAllCita, registerCita } = require('./cita.controllers');
+const { getAllCita, registerCita, updateCita } = require('./cita.controllers');
 const { getAllContacto, registerContacto } = require('./contacto.controllers');
 
 
@@ -21,4 +21,5 @@ module.exports = {
     getAllContacto,
     registerContacto,
     getTomadorId,
+    updateCita
 };

@@ -92,6 +92,17 @@ class CitaServices {
     //         throw error;
     //     }
     // }
+
+    static async updateCi(id, data){
+        try {
+            const result = await CitaCoti.update(data,{
+                where: {id},
+            });
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 module.exports = CitaServices;
