@@ -23,12 +23,12 @@ const Tomador = db.define('tomador', {
     },
     ci: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     email: {
         type: DataTypes.STRING,
         unique: true,
-        allowNull: false,
+        allowNull: true,
         validate: {
             isEmail: true,
         },
@@ -50,7 +50,7 @@ const Tomador = db.define('tomador', {
     },
     fNacimiento: {
         type: DataTypes.DATEONLY,
-        allowNull: false,
+        allowNull: true,
         field: "f_nacimiento"
     },
     patologia: {
