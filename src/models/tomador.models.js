@@ -15,20 +15,16 @@ const Tomador = db.define('tomador', {
     },
     firstname: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     lastname: {
         type: DataTypes.STRING,
-        allowNull: false,
     },
     ci: {
         type: DataTypes.INTEGER,
-        allowNull: true,
     },
     email: {
         type: DataTypes.STRING,
         unique: true,
-        allowNull: true,
         validate: {
             isEmail: true,
         },
@@ -50,16 +46,13 @@ const Tomador = db.define('tomador', {
     },
     fNacimiento: {
         type: DataTypes.DATEONLY,
-        allowNull: true,
         field: "f_nacimiento"
     },
     patologia: {
         type: DataTypes.STRING,
-        allowNull: true,
     },
     medicamentos: {
         type: DataTypes.STRING,
-        allowNull: true,
     },
 });
 
