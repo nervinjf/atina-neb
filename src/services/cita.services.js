@@ -6,7 +6,7 @@ class CitaServices {
         try {
             const result = await CitaCoti.findAll({
                 attributes: ["codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", "tiempo", 
-            "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "modoCita", "citaAcomp", "createdAt", "enviaCotiza"],
+            "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "modoCita", "citaAcomp", "createdAt", "enviaCotiza", "primaAnual"],
                 include:[
                     {
                        model: Tomador,

@@ -72,6 +72,12 @@ const CitaCoti = db.define('citacoti', {
         allowNull: false,
         defaultValue: false,
     },
+    primaAnual: {
+        type: DataTypes.BOOLEAN,
+        field: 'prima_Anual',
+        allowNull: false,
+        defaultValue: false,
+    },
 
 });
 
