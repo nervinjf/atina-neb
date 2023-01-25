@@ -132,6 +132,18 @@ class TomadorServices {
         }
     }
 
+    static async update(id, data){
+        try {
+            const result = await Tomador.update(data, {
+                where: {id},
+            })
+
+            return result
+        } catch (error) {
+            throw error
+        }
+    }
+
 };
 
 module.exports = TomadorServices;

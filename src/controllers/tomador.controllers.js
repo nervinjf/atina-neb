@@ -79,6 +79,22 @@ const getAlltomadorAndCotizacion = async (req, res, next) => {
         })
     }
 }
+
+const updateTomador = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const data = req.body;
+        const result = await TomadorServices.update(id, data);
+        res.status(201).json(result)
+
+    } catch (error) {
+        next({
+            status: 400,
+            errorContent: error,
+            message: "algo salio mal"
+        })
+    }
+}
 module.exports = {
     getAllTomador,
     tomadorRegister,
@@ -86,4 +102,5 @@ module.exports = {
     getAlltomadorAndCita,
     getAlltomadorAndCotizacion,
     getTomadorId,
+    updateTomador,
 }
