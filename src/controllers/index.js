@@ -4,6 +4,7 @@ const { getAllTomador, tomadorRegister, getAlltomadorAndAsegurados, getAlltomado
 const { getAllAsegurado, registerAsegurado } = require('./asegurado.controllers')
 const { getAllCita, registerCita, updateCita } = require('./cita.controllers');
 const { getAllContacto, registerContacto } = require('./contacto.controllers');
+const { userLogin } = require("./auth.controllers");
 
 
 module.exports = {
@@ -22,5 +23,6 @@ module.exports = {
     registerContacto,
     getTomadorId,
     updateCita,
-    updateTomador
+    updateTomador,
+    userLogin,
 };

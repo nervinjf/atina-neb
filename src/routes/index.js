@@ -3,6 +3,7 @@ const tomadorRoutes = require("./tomador.routes");
 const aseguradoRoutes = require("./asegurado.routes"); //
 const citaRoutes = require("./cita.routes");
 const contactoRoutes = require("./contacto.routes");
+const authRoutes = require("./auth.routes");
 
 module.exports = {
     userRoutes,
@@ -10,4 +11,5 @@ module.exports = {
     aseguradoRoutes,
     citaRoutes,
     contactoRoutes,
+    authRoutes,
 }
