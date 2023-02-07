@@ -7,6 +7,6 @@ const router = Router();
 
 
 router.post("/users", authVerification, userRegister);
-router.get("/users", getAllUsers);
+router.get("/users", authVerification, getAllUsers);
 
 module.exports = router;
