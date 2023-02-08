@@ -8,55 +8,29 @@ const Cita = db.define('cita', {
         autoIncrement: true,
         allowNull: false,
     },
-    tomadorId: {
+    peopleId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: 'tomador_id',
+        field: 'people_id',
     },
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         field: 'user_id',
     },
-    codigo: {
-        type: DataTypes.INTEGER,
-    },
     fecha: {
         type: DataTypes.DATE,
     },
-    tipo: {
+    fechaReagendada: {
+        type: DataTypes.DATE,
+        field: 'fecha_reagendada'
+    },
+    idioma: {
         type: DataTypes.STRING,
     },
-    plan: {
+    direccion: {
         type: DataTypes.STRING,
     },
-    // asegurados: {
-    //     type: DataTypes.INTEGER,
-    // },
-    // fPago: {
-    //     type: DataTypes.STRING,
-    // },
-    // efectivo: {
-    //     type: DataTypes.STRING,
-    // },
-    // tiempo: {
-    //     type: DataTypes.STRING,
-    // },
-    // fCliente: {
-    //     type: DataTypes.STRING,
-    // },
-    // fDevolucion: {
-    //     type: DataTypes.STRING,
-    // },
-    // adjunto: {
-    //     type: DataTypes.STRING,
-    // },
-    // poliza: {
-    //     type: DataTypes.STRING,
-    // },
-    // statusSuscripcion: {
-    //     type: DataTypes.STRING,
-    // },
 });
 
 module.exports = Cita;

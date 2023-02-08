@@ -4,7 +4,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const handleError = require("./middlewares/error.middleware");
 const initModels = require("./models/initModels");
-const { userRoutes, tomadorRoutes, aseguradoRoutes, citaRoutes, contactoRoutes, authRoutes } = require("./routes");
+const { userRoutes, PeopleRoutes, citaRoutes, contactoRoutes, authRoutes } = require("./routes");
 const transporter = require("./utils/mailer");
 
 const app = express();
@@ -34,8 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1", userRoutes);
-app.use("/api/v1", tomadorRoutes);
-app.use("/api/v1", aseguradoRoutes);
+app.use("/api/v1", PeopleRoutes);
 app.use("/api/v1", citaRoutes);
 app.use("/api/v1", contactoRoutes);
 app.use("/api/v1", authRoutes);

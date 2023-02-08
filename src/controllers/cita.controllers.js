@@ -38,12 +38,13 @@ const registerCita = async (req, res, next) => {
             A continuación los datos del prospecto:
             
             Nombre: ${result.firstname} ${result.lastname},
-            C.I.: ${result.ci},
             Telf: ${result.phone1} / ${result.phone2} / ${result.phone3},
+            Email: ${result.email},
+            Campaña: ${result.campana}
             
             Fecha y hora de Cita: ${fecha},
-            Póliza: ${result.phone1}.
-            Cobertura: ${result.plan},`,
+            Idoma: ${result.idioma}.
+            Direccion: ${result.direccion},`,
             // html: welcomeTemplate(),
         });
     } catch (error) {

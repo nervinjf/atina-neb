@@ -1,20 +1,19 @@
-const { Tomador, Contacto } = require('../models');
+const { Tomador, Contacto, People } = require('../models');
 
 class ContactoServices{
     static async getAll(){
         try {
             const result = await Contacto.findAll({
-                attributes: ["origen", "fuente", "proposito", "estatus", "motivo1",
-                "motivo2", "motivo3", "observacion"],
+                attributes: ["id", "origen", "fuente", "estatus", "resultado",
+                "observacion"],
                 include:{
-                    model: Tomador,
-                    as: "tomador",
+                    model: People,
+                    as: "people",
                     attributes: [
                         "firstname",
                         "lastname",
-                        "ci",
                         "email",
-                        "phone1"
+                        "campana"
                     ],
                 }
         });

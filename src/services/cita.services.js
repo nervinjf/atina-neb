@@ -1,22 +1,26 @@
-const { CitaCoti, Tomador, Users } = require('../models');
-const { getAll } = require('./users.services');
+const { CitaCoti, Tomador, Users, People } = require('../models');
+// const { getAll } = require('./users.services');
 
 class CitaServices {
     static async getAll(){
         try {
             const result = await CitaCoti.findAll({
-                attributes: ["codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", "tiempo", 
-            "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "modoCita", "citaAcomp", "createdAt", "enviaCotiza", "primaAnual"],
+                attributes: [
+                    "id",
+                    "fecha",
+                    "fechaReagendada",
+                    "idioma",
+                    "direccion",
+                ],
                 include:[
                     {
-                       model: Tomador,
-                    as: "tomador",
+                       model: People,
+                    as: "people",
                     attributes: [
                         "firstname",
                         "lastname",
-                        "ci",
                         "email",
-                        "phone1"
+                        "campana",
                     ], 
                     },
                     {
@@ -39,18 +43,15 @@ class CitaServices {
     static async register(newC){
         try {
             const result = await CitaCoti.create(newC);
-            const { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
-                fDevolucion, adjunto, poliza, statusSuscripcion} = result;
-            const datos = { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
-                fDevolucion, adjunto, poliza, statusSuscripcion};
+            const datos = {...result};
 
             const result2 = await Tomador.findOne({
                 where: {id: result.tomadorId},
                 raw: true});
 
-            const result3 = {...result2, ...datos};
+            console.log(result3 = {...result2, ...datos});
 
-            return result3;
+            // return result3;
 
 
         } catch (error) {

@@ -1,8 +1,8 @@
-const { AseguradoServices } = require('../services');
+const { PeopleServices } = require('../services');
 
-const getAllAsegurado = async (req, res, next) => {
+const getAllPeople = async (req, res, next) => {
     try {
-        const result = await AseguradoServices.getAll();
+        const result = await PeopleServices.getAll();
         res.json(result);
     } catch (error) {
         next({
@@ -13,10 +13,10 @@ const getAllAsegurado = async (req, res, next) => {
     }
 }
 
-const registerAsegurado = async (req, res, next) => {
+const registerPeople = async (req, res, next) => {
     try {
         const newAsegurado = req.body;
-        const result = await AseguradoServices.register(newAsegurado);
+        const result = await PeopleServices.register(newAsegurado);
         res.status(200).json(result);
     } catch (error) {
         next({
@@ -28,6 +28,6 @@ const registerAsegurado = async (req, res, next) => {
 }
 
 module.exports = {
-    getAllAsegurado,
-    registerAsegurado,
+    getAllPeople,
+    registerPeople,
 }

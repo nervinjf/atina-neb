@@ -1,7 +1,7 @@
 const db = require("../utils/database");
 const { DataTypes } = require('sequelize');
 
-const Tomador = db.define('tomador', {
+const People = db.define('people', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -15,46 +15,35 @@ const Tomador = db.define('tomador', {
     },
     firstname: {
         type: DataTypes.STRING,
+        allowNull: false,
     },
     lastname: {
         type: DataTypes.STRING,
-    },
-    ci: {
-        type: DataTypes.INTEGER,
+        allowNull: true,
     },
     email: {
         type: DataTypes.STRING,
-        unique: true,
+        allowNull: true,
         validate: {
             isEmail: true,
         },
     },
-    phone1: {
-        type: DataTypes.STRING,
+    phone: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
     },
     phone2: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
+        allowNull: true,
     },
     phone3: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    campana: {
         type: DataTypes.STRING,
-    },
-    address1: {
-        type: DataTypes.STRING,
-    },
-    address2: {
-        type: DataTypes.STRING,
-    },
-    fNacimiento: {
-        type: DataTypes.DATEONLY,
-        field: "f_nacimiento"
-    },
-    patologia: {
-        type: DataTypes.STRING,
-    },
-    medicamentos: {
-        type: DataTypes.STRING,
-    },
+        allowNull: false
+    }
 });
 
-module.exports = Tomador;
-
+module.exports = People;

@@ -8,10 +8,10 @@ const Contacto = db.define('contacto', {
         autoIncrement: true,
         allowNull: false,
     },
-    tomadorId: {
+    peopleId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: 'tomador_id',
+        field: 'people_id',
     },
     userId: {
         type: DataTypes.INTEGER,
@@ -24,19 +24,10 @@ const Contacto = db.define('contacto', {
     fuente: {
         type: DataTypes.STRING,
     },
-    proposito: {
-        type: DataTypes.STRING,
-    },
     estatus: {
         type: DataTypes.STRING,
     },
-    motivo1: {
-        type: DataTypes.STRING,
-    },
-    motivo2: {
-        type: DataTypes.STRING,
-    },
-    motivo3: {
+    resultado: {
         type: DataTypes.STRING,
     },
     observacion: {
