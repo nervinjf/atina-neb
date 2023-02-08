@@ -30,10 +30,10 @@
   "description": "jan-pro",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nervinjf/api-Jan-Pro.git"
+    "url": "git+https://github.com/nervinjf/atina-neb.git"
   },
   "bugs": {
-    "url": "https://github.com/nervinjf/api-Jan-Pro/issues"
+    "url": "https://github.com/nervinjf/atina-neb/issues"
   },
-  "homepage": "https://github.com/nervinjf/api-Jan-Pro#readme"
+  "homepage": "https://github.com/nervinjf/atina-neb#readme"
 }
