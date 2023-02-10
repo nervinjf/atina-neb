@@ -5,7 +5,7 @@ class ContactoServices{
         try {
             const result = await Contacto.findAll({
                 attributes: ["origen", "fuente", "proposito", "estatus", "motivo1",
-                "motivo2", "motivo3", "observacion"],
+                "motivo2", "motivo3", "observacion", "createdAt"],
                 include:{
                     model: Tomador,
                     as: "tomador",
