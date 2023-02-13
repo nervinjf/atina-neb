@@ -59,7 +59,7 @@ class TomadorServices {
                         as: "cita",
                         attributes: ["id", "codigo", "fecha", "tipo", "plan", "asegurados", "fPago", "efectivo", 
                         "tiempo", "fCliente", "fDevolucion", "adjunto", "poliza", "statusSuscripcion", "createdAt",
-                        "updatedAt"]
+                        "updatedAt", "primaAnual"]
                     },
                 ]
             })
