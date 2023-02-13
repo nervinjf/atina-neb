@@ -36,6 +36,8 @@ class CitaServices {
         }
     }
 
+    // git
+
     static async register(newC){
         try {
             const result = await CitaCoti.create(newC);
