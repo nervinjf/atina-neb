@@ -9,6 +9,7 @@ const db = new Sequelize({
   password: process.env.DB_PASSWORD,
   dialect: "mysql",
   logging: false,
+  timezone: "-04:00"
   // dialectOptions: { ssl: { require: false, rejectUnauthorized: false } },
 });
 
