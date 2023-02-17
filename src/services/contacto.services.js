@@ -1,12 +1,12 @@
-const { Tomador, Contacto } = require('../models');
+const { Tomador, Contacto, Users } = require('../models');
 
-class ContactoServices{
-    static async getAll(){
+class ContactoServices {
+    static async getAll() {
         try {
             const result = await Contacto.findAll({
                 attributes: ["origen", "fuente", "proposito", "estatus", "motivo1",
-                "motivo2", "motivo3", "observacion", "createdAt", "updatedAt"],
-                include:{
+                    "motivo2", "motivo3", "observacion", "createdAt", "updatedAt"],
+                include: [{
                     model: Tomador,
                     as: "tomador",
                     attributes: [
@@ -16,15 +16,24 @@ class ContactoServices{
                         "email",
                         "phone1"
                     ],
-                }
-        });
+                },{
+                    model: Users,
+                    as: "Users",
+                    attributes: [
+                        "firstname",
+                        "lastname",
+                        "email",
+                        "id;"
+                    ],
+                }]
+            });
             return result;
         } catch (error) {
             throw error;
         }
     }
 
-    static async register(newCo){
+    static async register(newCo) {
         try {
             const result = await Contacto.create(newCo);
             return result;
