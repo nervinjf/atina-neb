@@ -22,9 +22,8 @@ class ContactoServices {
                     attributes: [
                         "firstname",
                         "lastname",
-                        "email",
                         "id"
-                    ],
+                    ], 
                 },]
             });
             return result;
