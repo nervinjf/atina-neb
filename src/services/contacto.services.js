@@ -18,7 +18,7 @@ class ContactoServices {
                     ],
                 },{
                     model: Users,
-                    as: "Users",
+                    as: "contacto",
                     attributes: [
                         "firstname",
                         "lastname",
