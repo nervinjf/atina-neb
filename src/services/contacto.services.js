@@ -23,9 +23,9 @@ class ContactoServices {
                         "firstname",
                         "lastname",
                         "email",
-                        "id;"
+                        "id"
                     ],
-                }]
+                },]
             });
             return result;
         } catch (error) {
