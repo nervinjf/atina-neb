@@ -1,4 +1,4 @@
-const { Users, Cita, Tomador, Cotizacion, Asegurado, CitaCoti, Contacto} = require("./index");
+const { Users, Cita, Tomador, Cotizacion, Asegurado, CitaCoti, Contacto, Empresas, Empleado, CitaEmpresa, ContactoEmpresa, Cargo, TypoEmpresa } = require("./index");
 
 const initModels = () => {
   // muchos a muchos --> usuarios y conversaciones
@@ -18,8 +18,8 @@ const initModels = () => {
   Tomador.hasMany(Contacto, { as: "contacto", foreignKey: "tomador_id" });
 
   // 1 a muchos --> Tomador y Asegurado
-  Asegurado.belongsTo(Tomador, { as: "tomador", foreignKey: "tomador_id"});
-  Tomador.hasMany(Asegurado, {as:"asegurados", foreignKey:"tomador_id"});
+  Asegurado.belongsTo(Tomador, { as: "tomador", foreignKey: "tomador_id" });
+  Tomador.hasMany(Asegurado, { as: "asegurados", foreignKey: "tomador_id" });
 
   //1 a muchos --> Tomador --> Cita
   CitaCoti.belongsTo(Users, { as: "Users", foreignKey: "user_id", }); //ConversationId
@@ -30,8 +30,44 @@ const initModels = () => {
   Users.hasMany(Contacto, { as: "contacto", foreignKey: "user_id" });
 
   // 1 a muchos --> Tomador y Asegurado
-  Asegurado.belongsTo(Users, { as: "Users", foreignKey: "user_id"});
-  Users.hasMany(Asegurado, {as:"asegurados", foreignKey:"user_id"});
+  Asegurado.belongsTo(Users, { as: "Users", foreignKey: "user_id" });
+  Users.hasMany(Asegurado, { as: "asegurados", foreignKey: "user_id" });
+
+  // 1 a muchos --> Usuario y Empresas
+  Empresas.belongsTo(Users, { as: "Users", foreignKey: "user_id" });
+  Users.hasMany(Empresas, { as: "empresa", foreignKey: "user_id" });
+
+   // 1 a muchos --> Usuario y Empresas
+   Empleado.belongsTo(Empresas, { as: "empresas", foreignKey: "empresa_id" });
+   Empresas.hasMany(Empleado, { as: "empleado", foreignKey: "empresa_id" });
+
+  // 1 a muchos --> Usuario y Empresas
+  Empleado.belongsTo(Users, { as: "Users", foreignKey: "user_id" });
+  Users.hasMany(Empleado, { as: "empleado", foreignKey: "user_id" });
+
+  // 1 a 1 --> Usuario y Empresas
+  Empleado.belongsTo(Cargo, { as: "cargo", foreignKey: "cargo_id" });
+  Cargo.hasMany(Empleado, { as: "empleado", foreignKey: "cargo_id" });
+
+   // 1 a 1 --> Usuario y Empresas
+   Empleado.hasOne(CitaEmpresa, { as: "citae", foreignKey: "empleado_id" });
+   CitaEmpresa.belongsTo(Empleado, { as: "empleadoci", foreignKey: "empleado_id" });
+
+  //1 a muchos --> Tomador --> Cita
+  CitaEmpresa.belongsTo(Empresas, { as: "empresasci", foreignKey: "empresa_id", }); //ConversationId
+  Empresas.hasMany(CitaEmpresa, { as: "citae", foreignKey: "empresa_id", });
+
+  // 1 a muchos --> Tomador y Cotizacion
+  ContactoEmpresa.belongsTo(Empresas, { as: "empresasco", foreignKey: "empresa_id" });
+  Empresas.hasMany(ContactoEmpresa, { as: "contacto", foreignKey: "empresa_id" });
+
+  //1 a muchos --> Tomador --> Cita
+  CitaEmpresa.belongsTo(Users, { as: "Users", foreignKey: "user_id", }); //ConversationId
+  Users.hasMany(CitaEmpresa, { as: "citau", foreignKey: "user_id", });
+
+  // 1 a muchos --> Tomador y Cotizacion
+  ContactoEmpresa.belongsTo(Users, { as: "Users", foreignKey: "user_id" });
+  Users.hasMany(ContactoEmpresa, { as: "contactoe", foreignKey: "user_id" });
 };
 
 module.exports = initModels;

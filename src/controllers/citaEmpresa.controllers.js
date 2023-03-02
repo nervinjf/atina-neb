@@ -1,59 +1,56 @@
-const { NotBeforeError } = require('jsonwebtoken');
-const { CitaServices } = require('../services');
-const welcomeTemplate = require('../templates/test');
+const { CitaEmpresaServices } = require('../services');
 const transporter = require("../utils/mailer");
 
-const getAllCita = async (req, res, next) => {
+
+const getAllCitaEmpresa = async (req, res, next) => {
     try {
-        const result = await CitaServices.getAll();
-        res.json(result);
+        const result = await CitaEmpresaServices.getAll();
+        res.json(result)
     } catch (error) {
         next({
             status: 400,
             errorContent: error,
-            message: "Algo salio mal"
+            Message: 'Algo salio mal. Su busqueda no se completo'
         })
     }
 }
 
-const registerCita = async (req, res, next) => {
+const registerCitaEmpresa = async (req, res, next) => {
     try {
-        const newCita = req.body;
-        const result = await CitaServices.register(newCita);
+        const data = req.body;
+        const result = await CitaEmpresaServices.register(data);
         res.status(201).json(result);
-
-        // const resultTomador = result.tomadorId;
-        // console.log(resultTomador);
-
-        // const result2 = await CitaServices.findOne(resultTomador)
 
         const fecha = new Date(result.fecha).toLocaleString('es-VE', { timeZone: 'UTC' });
 
         transporter.sendMail({
             from: "<noreply@neb.com.ve>",
             to: "vsolano@neb.com.ve",
-            subject: `Registro Cotización ${result.firstname} ${result.lastname}`,
-            text: `Buenas tardes equipo, nueva solicitud de cita. 
+            subject: `Registro Cotización Empresa ${result.razonSocial} ${result.rif}`,
+            text: `Buenas tardes equipo, nueva solicitud de cita de empresa. 
 
             A continuación los datos del prospecto:
             
-            Nombre: ${result.razonSocial},
-            RIF: ${result.rif},
+            Nombre:${result.razonSocial}
+            C.I.: ${result.rif},,
             Telf: ${result.phone} / ${result.phone2},
             
-            Fecha y hora de Cita: ${fecha}`,
+            Fecha y hora de Cita: ${fecha},
+            Póliza: ${result.primaAnual}.
+            Cobertura: ${result.plan},`,
             // html: welcomeTemplate(),
         });
+
     } catch (error) {
         next({
             status: 400,
             errorContent: error,
-            message: "Faltan datos"
+            message: 'Faltan datos o datos incorrectos, validar'
         })
     }
 }
 
-const updateCita = async (req, res, next) => {
+const updateCitaEmpresa = async (req, res, next) => {
     try {
         const { id } = req.params;
         const  data  = req.body;
@@ -70,9 +67,8 @@ const updateCita = async (req, res, next) => {
     }
 }
 
-
 module.exports = {
-    getAllCita,
-    registerCita,
-    updateCita
+    getAllCitaEmpresa,
+    registerCitaEmpresa,
+    updateCitaEmpresa
 }

@@ -42,9 +42,9 @@ class CitaServices {
         try {
             const result = await CitaCoti.create(newC);
             const { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
-                fDevolucion, adjunto, poliza, statusSuscripcion} = result;
+                fDevolucion, adjunto, poliza, statusSuscripcion, primaAnual} = result;
             const datos = { codigo, fecha, tipo, plan, asegurados, fPago, efectivo, tiempo, fCliente,
-                fDevolucion, adjunto, poliza, statusSuscripcion};
+                fDevolucion, adjunto, poliza, statusSuscripcion, primaAnual};
 
             const result2 = await Tomador.findOne({
                 where: {id: result.tomadorId},

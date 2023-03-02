@@ -5,7 +5,12 @@ const { getAllAsegurado, registerAsegurado } = require('./asegurado.controllers'
 const { getAllCita, registerCita, updateCita } = require('./cita.controllers');
 const { getAllContacto, registerContacto } = require('./contacto.controllers');
 const { userLogin } = require("./auth.controllers");
-
+// --------------------------Empresas-----------------------------------
+const { getAllCitaEmpresa, registerCitaEmpresa, updateCitaEmpresa } = require('./citaEmpresa.controllers');
+const { getAllContactoEmpresa, registerContactoEmpresa } = require('./contactoEmpresa.controllers');
+const { getAllCargo, registerCargo } = require('./cargo.controllers');
+const { getAllempresas, registerEmpresa, UpdateEmpresa, getEmpresaId } = require('./empresa.controllers')
+const { getAllEmpleado, registerEmpleado, updateEmpleado } = require('./empleado.controllers')
 
 module.exports = {
     userRegister,
@@ -25,4 +30,18 @@ module.exports = {
     updateCita,
     updateTomador,
     userLogin,
+    getAllCitaEmpresa,
+    registerCitaEmpresa,
+    updateCitaEmpresa,
+    getAllContactoEmpresa,
+    registerContactoEmpresa,
+    getAllCargo,
+    registerCargo,
+    getAllempresas,
+    registerEmpresa,
+    UpdateEmpresa,
+    getAllEmpleado,
+    registerEmpleado,
+    updateEmpleado,
+    getEmpresaId
 };

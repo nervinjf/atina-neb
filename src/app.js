@@ -4,7 +4,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const handleError = require("./middlewares/error.middleware");
 const initModels = require("./models/initModels");
-const { userRoutes, tomadorRoutes, aseguradoRoutes, citaRoutes, contactoRoutes, authRoutes } = require("./routes");
+const { userRoutes, tomadorRoutes, aseguradoRoutes, citaRoutes, contactoRoutes, authRoutes, cargoRoutes, empresasRoutes, empleadosRoutes, citaEmpresasRoutes, contactoEmpresasRoutes } = require("./routes");
 const transporter = require("./utils/mailer");
 
 const app = express();
@@ -39,6 +39,11 @@ app.use("/api/v1", aseguradoRoutes);
 app.use("/api/v1", citaRoutes);
 app.use("/api/v1", contactoRoutes);
 app.use("/api/v1", authRoutes);
+app.use("/api/v1", cargoRoutes);
+app.use("/api/v1", empresasRoutes);
+app.use("/api/v1", empleadosRoutes);
+app.use("/api/v1", citaEmpresasRoutes);
+app.use("/api/v1", contactoEmpresasRoutes);
 
 
 app.use(handleError);

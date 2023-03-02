@@ -10,6 +10,11 @@ const Tomador = require("./tomador.models");
 const Cita = require("./cita.models");
 const CitaCoti = require("./citaCoti.models");
 const Contacto = require("./contacto.models");
+const Empresas = require('./empresas.models');
+const Cargo = require('./cargo.models');
+const Empleado = require('./empleado.models');
+const CitaEmpresa = require('./citaEmpresa.models');
+const ContactoEmpresa = require('./contactoEmpresa.models');
 
 module.exports = {
   Users,
@@ -18,5 +23,10 @@ module.exports = {
   Tomador,
   Cita,
   CitaCoti,
-  Contacto
+  Contacto,
+  Empleado,
+  Cargo,
+  Empresas,
+  CitaEmpresa,
+  ContactoEmpresa,
 };
