@@ -54,6 +54,7 @@ class CitaEmpresaServices {
                     }
                 ],
             })
+            return result
         } catch (error) {
             throw error
         }
@@ -78,10 +79,10 @@ class CitaEmpresaServices {
         }
     }
 
-    static async updateCi(id, data) {
+    static async updateCiE(id, data) {
         try {
-            const result = await CitaEmpresa.update(data, {
-                where: { id },
+            const result = await CitaEmpresa.update(data,{
+                where: {id},
             });
             return result;
         } catch (error) {

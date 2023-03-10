@@ -24,7 +24,7 @@ const CitaEmpresa = db.define('citaempresa', {
         field: 'empleado_id',
     },
     fecha: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
     },
     fechareagendada: {
         type: DataTypes.STRING,

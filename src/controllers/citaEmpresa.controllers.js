@@ -54,8 +54,7 @@ const updateCitaEmpresa = async (req, res, next) => {
     try {
         const { id } = req.params;
         const  data  = req.body;
-
-        const result = await CitaServices.updateCi(id, data);
+        const result = await CitaEmpresaServices.updateCiE(id, data);
         res.status(201).json(result);
 
     } catch (error) {
@@ -70,5 +69,5 @@ const updateCitaEmpresa = async (req, res, next) => {
 module.exports = {
     getAllCitaEmpresa,
     registerCitaEmpresa,
-    updateCitaEmpresa
+    updateCitaEmpresa,
 }

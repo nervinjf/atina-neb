@@ -30,5 +30,5 @@ const registerContactoEmpresa = async (req, res, next) => {
 
 module.exports = {
     getAllContactoEmpresa,
-    registerContactoEmpresa
+    registerContactoEmpresa,
 }
