@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(cors({origin: "http://crmatina.nebconnection.com/"}));
+app.use(cors({origin: "*"}));
 
 initModels();
 
