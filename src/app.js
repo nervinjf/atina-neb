@@ -40,7 +40,7 @@ app.use("/api/v1", tomadorRoutes);
 app.use("/api/v1", aseguradoRoutes);
 app.use("/api/v1", citaRoutes);
 app.use("/api/v1", contactoRoutes);
-app.use("/api/v1", authRoutes);
+app.use("/api/v1", cors({origin: "*"}), authRoutes);
 app.use("/api/v1", cargoRoutes);
 app.use("/api/v1", empresasRoutes);
 app.use("/api/v1", empleadosRoutes);
