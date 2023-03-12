@@ -12,6 +12,13 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
+app.use((req, res, next) => {
+  res.set("Access-Control-Allow-Credentials", "true");
+  res.set("Access-Control-Allow-Origin", "http://tu_dominio.com");
+  res.set("Access-Control-Allow-Headers", "Content-Type");
+  res.set("Access-Control-Allow-Methods", "OPTIONS,GET,PUT,POST,DELETE");
+  next();
+});
 
 initModels();
 
