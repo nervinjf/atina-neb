@@ -15,6 +15,9 @@ const Cargo = require('./cargo.models');
 const Empleado = require('./empleado.models');
 const CitaEmpresa = require('./citaEmpresa.models');
 const ContactoEmpresa = require('./contactoEmpresa.models');
+const SCotizacion = require('./Seguimiento/SCotizacion.models')
+const SPersonas = require('./Seguimiento/SPersonas.models')
+const SContacto = require('./Seguimiento/SContacto.models')
 
 module.exports = {
   Users,
@@ -29,4 +32,7 @@ module.exports = {
   Empresas,
   CitaEmpresa,
   ContactoEmpresa,
+  SCotizacion,
+  SPersonas,
+  SContacto
 };

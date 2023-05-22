@@ -9,6 +9,10 @@ const empresasRoutes = require("./empresa.routes");
 const empleadosRoutes = require("./empleado.routes");
 const citaEmpresasRoutes = require("./citaEmpresa.routes");
 const contactoEmpresasRoutes = require("./contactoEmpresa.routes");
+// seguimiento
+const SContactoRoutes = require('./seguimiento/scontacto.routes');
+const SCotizacionRoutes = require('./seguimiento/scotizacion.routes');
+const SPersonaRoutes = require('./seguimiento/spersona.routes');
 
 module.exports = {
     userRoutes,
@@ -21,5 +25,8 @@ module.exports = {
     empresasRoutes, 
     empleadosRoutes, 
     citaEmpresasRoutes, 
-    contactoEmpresasRoutes
+    contactoEmpresasRoutes,
+    SContactoRoutes,
+    SCotizacionRoutes,
+    SPersonaRoutes
 }

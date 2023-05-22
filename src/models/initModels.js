@@ -1,4 +1,4 @@
-const { Users, Cita, Tomador, Cotizacion, Asegurado, CitaCoti, Contacto, Empresas, Empleado, CitaEmpresa, ContactoEmpresa, Cargo, TypoEmpresa } = require("./index");
+const { Users, Cita, Tomador, Cotizacion, Asegurado, CitaCoti, Contacto, Empresas, Empleado, CitaEmpresa, ContactoEmpresa, Cargo, TypoEmpresa, SPersonas, SContacto, SCotizacion } = require("./index");
 
 const initModels = () => {
   // muchos a muchos --> usuarios y conversaciones
@@ -68,6 +68,27 @@ const initModels = () => {
   // 1 a muchos --> Tomador y Cotizacion
   ContactoEmpresa.belongsTo(Users, { as: "Users", foreignKey: "user_id" });
   Users.hasMany(ContactoEmpresa, { as: "contactoe", foreignKey: "user_id" });
+
+  // 1 a muchos --> User y Persona-Seguimiento
+  SPersonas.belongsTo(Users, {as: "userss", foreignKey: "user_id"});userss
+  Users.hasMany(SPersonas, {as: "spersonau", foreignKey: "user_id"});
+
+  // 1 a  muchos --> persona-Seguimiento y contacto-segiuimiento
+  SContacto.belongsTo(SPersonas, {as: "spersonacta", foreignKey: "spersona_id"});
+  SPersonas.hasMany(SContacto, {as: "scontactop", foreignKey: "spersona_id"});
+
+   // 1 a  muchos --> persona-Seguimiento y cotizacion-segiuimiento
+   SCotizacion.belongsTo(SPersonas, {as: "spersonacti", foreignKey: "spersona_id"});
+   SPersonas.hasMany(SCotizacion, {as: "scotizacionp", foreignKey: "spersona_id"});
+
+   // 1 a muchos --> User y Persona-Seguimiento
+  SContacto.belongsTo(Users, {as: "userctos", foreignKey: "user_id"});
+  Users.hasMany(SContacto, {as: "scontactou", foreignKey: "user_id"});
+
+
+  // 1 a muchos --> User y Persona-Seguimiento
+  SCotizacion.belongsTo(Users, {as: "usersctis", foreignKey: "user_id"});
+  Users.hasMany(SCotizacion, {as: "scotizacionu", foreignKey: "user_id"});
 };
 
 module.exports = initModels;

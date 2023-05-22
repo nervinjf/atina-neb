@@ -9,6 +9,10 @@ const CitaEmpresaServices = require('./citaEmpresa.services');
 const EmpleadoServices = require('./empleado.services');
 const EmpresaServices = require('./empresa.services');
 const ContactoEmpresaServices = require('./contactoEmpresas.services')
+// Seguimiento
+const SContactoServices = require('./Seguimiento/SContacto.services');
+const SCotizacionServices = require('./Seguimiento/SCotizacion.services');
+const SPersonaServices = require('./Seguimiento/SPersona.services');
 
 module.exports = {
     UserServices,
@@ -22,4 +26,7 @@ module.exports = {
     EmpleadoServices,
     EmpresaServices,
     ContactoEmpresaServices,
+    SContactoServices,
+    SCotizacionServices,
+    SPersonaServices
 };

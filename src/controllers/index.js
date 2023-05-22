@@ -12,6 +12,12 @@ const { getAllCargo, registerCargo } = require('./cargo.controllers');
 const { getAllempresas, registerEmpresa, UpdateEmpresa, getEmpresaId } = require('./empresa.controllers')
 const { getAllEmpleado, registerEmpleado, updateEmpleado } = require('./empleado.controllers')
 
+// --------------------------Seguimiento --------------------------------------------
+
+const {getContactoSeguimiento, postContactoSeguimiento} = require('./Seguimiento/scontacto.controllers');
+const {PutCotizacionSeguimiento, getCotizacionSeguimiento, postCotizacionSeguimiento} = require('./Seguimiento/scotizacion.controllers');
+const {PutPersonaSeguimiento, getPersonaSeguimiento, postPersonaSeguimiento} = require('./Seguimiento/spersona.controllers');
+
 module.exports = {
     userRegister,
     getAllUsers,
@@ -43,5 +49,13 @@ module.exports = {
     getAllEmpleado,
     registerEmpleado,
     updateEmpleado,
-    getEmpresaId
+    getEmpresaId,
+    getContactoSeguimiento,
+    postContactoSeguimiento,
+    PutCotizacionSeguimiento,
+    getCotizacionSeguimiento,
+    postCotizacionSeguimiento,
+    PutPersonaSeguimiento,
+    getPersonaSeguimiento,
+    postPersonaSeguimiento
 };

@@ -1,13 +1,13 @@
-const { ContactoEmpresa, Empresas, Users } = require("../models");
+const { ContactoEmpresa, Empresas, Users, Empleado } = require("../models");
 
 
 
-class ContactoEmpresaServices{
-    
-    static async getAll(){
+class ContactoEmpresaServices {
+
+    static async getAll() {
         try {
             const result = await ContactoEmpresa.findAll({
-                attributes:[
+                attributes: [
                     "id",
                     "origen",
                     "fuente",
@@ -16,8 +16,8 @@ class ContactoEmpresaServices{
                     "motivo1",
                     "motivo2",
                     "motivo3",
-                    "observacion",  
-                    "createdAt", 
+                    "observacion",
+                    "createdAt",
                     "updatedAt"
                 ],
                 include: [
@@ -46,6 +46,21 @@ class ContactoEmpresaServices{
                             "id"
                         ],
                     },
+                    {
+                        include: [
+                            {
+                                model: Empleado,
+                                as: "empleado",
+                                attributes: [
+                                    "id",
+                                    "firstname",
+                                    "lastname",
+                                    "email"
+                                ],
+                            }
+                        ],
+                    }
+                    
                 ]
             });
             return result;
@@ -54,7 +69,7 @@ class ContactoEmpresaServices{
         }
     }
 
-    static async register(data){
+    static async register(data) {
         try {
             const result = await ContactoEmpresa.create(data);
             return result;
