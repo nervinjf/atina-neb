@@ -1,7 +1,5 @@
 const { SContacto, SPersonas, Users } = require("../../models");
 
-const { } = require();
-
 class SContactoServices {
     static async getAll() {
         try {

@@ -1,10 +1,10 @@
 const {SContactoServices} = require('../../services');
 
-const getContactoSeguimiento = async (res, req, next) =>{
+const getContactoSeguimiento = async (req, res, next) =>{
     try {
         
         const result = await SContactoServices.getAll();
-        return res.json(result);
+         res.json(result);
 
     } catch (error) {
         next({
@@ -15,12 +15,12 @@ const getContactoSeguimiento = async (res, req, next) =>{
     }
 }
 
-const postContactoSeguimiento = async (res, req, next) =>{
+const postContactoSeguimiento = async (req, res, next) =>{
     try {
 
         const data = req.body
         const result = await SContactoServices.newRegister(data);
-        return res.status(201).json(result);
+         res.status(201).json(result);
 
     } catch (error) {
         next({

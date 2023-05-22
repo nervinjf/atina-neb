@@ -16,7 +16,7 @@ const { getAllEmpleado, registerEmpleado, updateEmpleado } = require('./empleado
 
 const {getContactoSeguimiento, postContactoSeguimiento} = require('./Seguimiento/scontacto.controllers');
 const {PutCotizacionSeguimiento, getCotizacionSeguimiento, postCotizacionSeguimiento} = require('./Seguimiento/scotizacion.controllers');
-const {PutPersonaSeguimiento, getPersonaSeguimiento, postPersonaSeguimiento} = require('./Seguimiento/spersona.controllers');
+const {PutPersonaSeguimiento, getPersonaSeguimiento, postPersonaSeguimiento, getByIdPersonaSeguimiento} = require('./Seguimiento/spersona.controllers');
 
 module.exports = {
     userRegister,
@@ -57,5 +57,6 @@ module.exports = {
     postCotizacionSeguimiento,
     PutPersonaSeguimiento,
     getPersonaSeguimiento,
-    postPersonaSeguimiento
+    postPersonaSeguimiento,
+    getByIdPersonaSeguimiento
 };

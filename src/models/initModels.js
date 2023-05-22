@@ -70,7 +70,7 @@ const initModels = () => {
   Users.hasMany(ContactoEmpresa, { as: "contactoe", foreignKey: "user_id" });
 
   // 1 a muchos --> User y Persona-Seguimiento
-  SPersonas.belongsTo(Users, {as: "userss", foreignKey: "user_id"});userss
+  SPersonas.belongsTo(Users, {as: "userss", foreignKey: "user_id"});
   Users.hasMany(SPersonas, {as: "spersonau", foreignKey: "user_id"});
 
   // 1 a  muchos --> persona-Seguimiento y contacto-segiuimiento

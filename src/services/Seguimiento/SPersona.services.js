@@ -5,7 +5,7 @@ class SPersonaServices {
         try {
             const result = await SPersonas.findAll({
                 attributes: ["firstname", "lastname", "ci", "birthdate", "edad", "sexo", "email",
-                             "telefono", "producto", "compania", "dateCotizacion", "tipo", "captacion", "agente", "createdAt", "updatedAt"],
+                             "telefono", "productop", "companiap", "dateCotizacions", "tipo", "captacion", "agente", "createdAt", "updatedAt"],
                 include: [{
                     model: SContacto,
                     as: "scontactop",
@@ -13,7 +13,7 @@ class SPersonaServices {
                 },{
                     model: SCotizacion,
                     as: "scotizacionp",
-                    attributes:["codigo", "producto", "plan", "asegurados", "poliza", "statusSuscripcion", "enviaCotiza", "primaAnual", "createdAt", "updatedAt"],
+                    attributes:["codigo", "productoc", "plan", "asegurados", "poliza", "statusSuscripcion", "enviaCotiza", "primaAnual", "createdAt", "updatedAt"],
                 },{
                     model: Users,
                     as: "userss",
@@ -21,9 +21,9 @@ class SPersonaServices {
                 }]
 
             })
-            return result
+            return result;
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 
@@ -31,7 +31,7 @@ class SPersonaServices {
         try {
             const result = await SPersonas.findByPk(id, {
                 attributes: ["firstname", "lastname", "ci", "birthdate", "edad", "sexo", "email",
-                             "telefono", "producto", "compania", "dateCotizacion", "tipo", "captacion", "agente", "createdAt", "updatedAt"],
+                "telefono", "productop", "companiap", "dateCotizacions", "tipo", "captacion", "agente", "createdAt", "updatedAt"],
                 include: [{
                     model: SContacto,
                     as: "scontactop",
@@ -39,13 +39,13 @@ class SPersonaServices {
                 },{
                     model: SCotizacion,
                     as: "scotizacionp",
-                    attributes:["codigo", "producto", "plan", "asegurados", "poliza", "statusSuscripcion", "enviaCotiza", "primaAnual", "createdAt", "updatedAt"],
+                    attributes:["codigo", "productoc", "plan", "asegurados", "poliza", "statusSuscripcion", "enviaCotiza", "primaAnual", "createdAt", "updatedAt"],
                 }]
 
-            })
-            return result
+            });
+            return result;
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 
@@ -54,7 +54,7 @@ class SPersonaServices {
             const result = await SPersonas.create(data)
             return result
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 
@@ -62,10 +62,10 @@ class SPersonaServices {
         try {
             const result = await SPersonas.update(data,{
                 where: {id},
-            })
-            return result
+            });
+            return result;
         } catch (error) {
-            throw error
+            throw error;
         }
     }
 }

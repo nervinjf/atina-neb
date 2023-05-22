@@ -4,7 +4,7 @@ class SCotizacionServices {
     static async getAll(){
         try {
             const result = await SCotizacion.findAll({
-                attributes: ["codigo", "producto", "plan", "asegurados", "poliza", "statusSuscripcion", "enviaCotiza", "primaAnual", "createdAt", "updatedAt"],
+                attributes: ["codigo", "productoc", "plan", "asegurados", "poliza", "statusSuscripcion", "enviaCotiza", "primaAnual", "createdAt", "updatedAt"],
                 include: [{
                     model: SPersonas,
                     as: "spersonacti",
